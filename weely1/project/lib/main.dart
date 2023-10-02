@@ -1,20 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:project/screens/welcome.dart';
+import 'package:project/welcome_section.dart';
+import 'package:project/contact_us_section.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Weely1',
-      theme: ThemeData(
-        primarySwatch: Colors.indigo,
+      home: ScrollApp(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class ScrollApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('E-Complaint'),
+        centerTitle: true,
+        backgroundColor: Colors.redAccent[400],
       ),
-      home: HomeScreen(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Header(),
+            WelcomeSection(),
+            ContactUsSection(),
+          ],
+        ),
+      ),
     );
   }
 }
